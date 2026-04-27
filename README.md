@@ -1,6 +1,72 @@
-# Travel Agent - Part 1
+# Welcome to Travel Agent
+***
 
-A simple AI-powered travel agent that helps users search for flights and discuss travel options using mock flight data and an LLM (Large Language Model).
+## Task
+Build a conversational travel agent that intelligently searches through flight data and discusses travel options using natural language. The challenge is integrating an LLM to understand user intent, detect flight search queries, and maintain context across multiple conversation turns while working with mock flight data.
+
+## Description
+We've solved this by creating an AI-powered agent that:
+- Detects flight search intent and extracts origin/destination from user queries
+- Searches a mock flight database (10 flights across multiple routes like NYC ↔ LAX, SFO → MIA)
+- Injects flight results into prompts dynamically for the LLM to discuss
+- Uses OpenAI's GPT-3.5-turbo API for natural, context-aware conversations
+- Maintains full conversation history to enable multi-turn interactions
+- Provides a simple terminal-based interface for easy interaction
+
+## Installation
+Prerequisites:
+- Python 3.8+
+- OpenAI API key (get one at https://platform.openai.com/api-keys)
+
+Setup steps:
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate  # macOS/Linux
+# OR
+venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install openai python-dotenv
+
+# Configure API key
+cp .env.example .env
+# Edit .env and add your OpenAI API key: OPENAI_API_KEY=sk-...your-key-here...
+```
+
+## Usage
+How it works:
+```
+python travel_agent.py
+```
+
+Example interactions:
+```
+You: Find me flights from NYC to LAX
+Assistant: [Lists available flights and provides recommendations]
+
+You: What's the cheapest flight to Los Angeles?
+Assistant: [Shows budget options and highlights the best deals]
+
+You: Tell me about the Southwest flight
+Assistant: [Provides details about Southwest flights]
+
+You: When are the flights from NYC to LAX?
+Assistant: [Lists departure times and dates]
+
+You: Exit
+Assistant: Thank you for using the Travel Agent! Have a great trip!
+```
+
+### The Core Team
+
+
+<span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
+<span><img alt='Qwasar SV -- Software Engineering School's Logo' src='https://storage.googleapis.com/qwasar-public/qwasar-logo_50x50.png' width='20px' /></span>
+
+---
 
 ## 🎯 Project Overview
 
@@ -18,69 +84,6 @@ This is a **Part 1** project demonstrating a conversational travel agent that:
 - **Conversation History**: Maintains message context for multi-turn conversations
 - **Simple Architecture**: No complex routing, databases, or external APIs
 - **Terminal-Based UI**: Easy-to-use command-line interface
-
-## 🚀 Quick Start
-
-### 1. Prerequisites
-- Python 3.8+
-- OpenAI API key (get one at https://platform.openai.com/api-keys)
-
-### 2. Environment Setup
-
-```bash
-# Clone or navigate to the project
-cd Travel-Agent
-
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-source venv/bin/activate  # macOS/Linux
-# OR
-venv\Scripts\activate  # Windows
-
-# Install dependencies
-pip install openai python-dotenv
-```
-
-### 3. Configure API Key
-
-```bash
-# Copy the example file
-cp .env.example .env
-
-# Edit .env and add your OpenAI API key
-# OPENAI_API_KEY=sk-...your-key-here...
-```
-
-⚠️ **Important**: Never commit your `.env` file to version control!
-
-### 4. Run the Agent
-
-```bash
-python travel_agent.py
-```
-
-## 💬 Usage Examples
-
-Once the script is running, try these queries:
-
-```
-You: Find me flights from NYC to LAX
-Assistant: [Lists available flights and provides recommendations]
-
-You: What's the cheapest flight to Los Angeles?
-Assistant: [Shows budget options and highlights the best deals]
-
-You: Tell me about the Southwest flight
-Assistant: [Provides details about Southwest flights]
-
-You: When are the flights from NYC to LAX?
-Assistant: [Lists departure times and dates]
-
-You: Exit
-Assistant: Thank you for using the Travel Agent! Have a great trip!
-```
 
 ## 📁 Project Structure
 
